@@ -16,15 +16,15 @@ public class lesson_2 {
             getFile();
 //            return;
 //            m[5] = a;
-//            b = 10 / a;
+            b = 10 / a;
 //            div(15);
 //            throw new NullPointerException("NPE test");
         } catch (FileNotFoundException | ArithmeticException | ArrayIndexOutOfBoundsException | NullPointerException ex) {
             ex.printStackTrace();
-//            System.out.println("division by 0");
-        } finally {
+            System.out.println("division by 0");
+        } /*finally {
             System.out.println("I'm finally");
-        }
+//        }*/
         System.out.println("Everything is OK.");
 
     }
