@@ -1,4 +1,4 @@
-package Java_2.HW_Java_2.lesson_4;
+package Java_2.Lessons_Java_2.lesson_4;
 
 import javax.swing.*;
 import javax.swing.text.SimpleAttributeSet;
@@ -8,15 +8,16 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+
 /**
  * Created by Red Panda on 09.09.2017.
  */
 
-public class SimpleChatBot extends JFrame implements ActionListener{
+public class SimpleChatBot extends JFrame implements ActionListener {
 
     final String TITLE_OG_PROGRAM = "Chartter: simple chatbot";
     final int START_LOCATION = 200;
-    final int WINDOW_WINDTH = 350;
+    final int WINDOW_WIDTH = 350;
     final int WINDOW_HEIGHT = 450;
     final String CHB_AI = "AI";
     final String BTN_ENTER = "Enter";
@@ -25,22 +26,17 @@ public class SimpleChatBot extends JFrame implements ActionListener{
     JTextPane dialogue;
     JCheckBox ai;
     JTextField massage;
-    //    SimpleBot sbot;
+    //SimpleBot sbot;
     SimpleAttributeSet botStyle;
 
     public static void main(String[] args) {
-        try {
-            new SimpleChatBot();
-
-        } catch (Exception ex) {
-
-        }
+        new SimpleChatBot();
     }
 
     SimpleChatBot() {
         setTitle(TITLE_OG_PROGRAM);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setBounds(START_LOCATION, START_LOCATION, WINDOW_WINDTH, WINDOW_HEIGHT);
+        setBounds(START_LOCATION, START_LOCATION, WINDOW_WIDTH, WINDOW_HEIGHT);
 
         dialogue = new JTextPane();
         dialogue.setEnabled(false);
@@ -64,17 +60,20 @@ public class SimpleChatBot extends JFrame implements ActionListener{
         bp.add(ai);
         bp.add(massage);
         bp.add(enter);
-        bp.add(BorderLayout.SOUTH, bp);
+        add(BorderLayout.SOUTH, bp);
 
         setVisible(true);
     }
 
     @Override
     public void actionPerformed(ActionEvent event) {
-        if (massage.getText().trim().length()>0) {
+        if (massage.getText().trim().length() > 0) {
             try {
                 StyledDocument doc = dialogue.getStyledDocument();
-                doc.insertString(doc.getLength(), massage.getText() + "\n", new SimpleAttributeSet());
+
+                doc.insertString(doc.getLength(), massage.getText() +
+                        "\n", new SimpleAttributeSet());
+
             } catch (Exception e) {
             }
         }
