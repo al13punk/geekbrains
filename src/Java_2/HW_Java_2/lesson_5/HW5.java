@@ -1,7 +1,8 @@
 package Java_2.HW_Java_2.lesson_5;
 
 /**
- * Created by Red Panda on 15.09.2017.
+ * Created by Александр Руденко on 15.09.2017.
+ * обработка массива через потоки
  */
 
 import java.util.Arrays;
@@ -62,19 +63,19 @@ public class HW5 {
 
         for (int i = 0; i < numOfThreads; i++) {
             allTempArr[i] = new float[tempSize];
-            System.arraycopy(arr, 0 + tempSize * i, allTempArr[i], 0, tempSize);
+            System.arraycopy(arr,  tempSize * i, allTempArr[i], 0, tempSize);
             threads[i] = new MyRunnable("th_" + i, allTempArr[i], i, tempSize);
         }
         try {
-            for (int i = 0; i < threads.length; i++) {
-                threads[i].join();
+            for (MyRunnable thread : threads) {
+                thread.join();
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
         for (int i = 0; i < threads.length; i++) {
-            System.arraycopy(threads[i].getArr(), 0, arr, 0 + tempSize * i, threads[i].getArr().length);
+            System.arraycopy(threads[i].getArr(), 0, arr, tempSize * i, threads[i].getArr().length);
         }
 
         /*float[] tempArr1 = new float[h];
@@ -102,8 +103,8 @@ public class HW5 {
     }
 
     public static void showArr() {
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + " ");
+        for (float anArr : arr) {
+            System.out.print(anArr + " ");
         }
         System.out.println();
     }
@@ -127,12 +128,13 @@ class MyRunnable extends Thread {
     @Override
     public void run() {
         System.out.println("      "+getName() + " is starting");
-
+        long startTime = System.currentTimeMillis();
         for (int i = 0; i < arr.length; i++) {
             int j = i + flag * addNumber;
             this.arr[i] = (float) (arr[i] * Math.sin(0.2f + j / 5) * Math.cos(0.2f + j / 5) * Math.cos(0.4f + j / 2));
         }
-        System.out.println("      "+getName() + " is end");
+        long finishTime = System.currentTimeMillis() - startTime;
+        System.out.println("      "+getName() + " is end "+finishTime);
     }
 
     public float[] getArr() {
