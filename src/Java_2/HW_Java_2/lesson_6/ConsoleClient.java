@@ -3,8 +3,7 @@ package Java_2.HW_Java_2.lesson_6;
 import java.net.Socket;
 
 /**
- * Created by Александр Руденко on 16.09.2017.
- * консольная часть клиенцта
+ * Created by Александр Руденко on 23.09.2017.
  */
 class ConsoleClient {
 

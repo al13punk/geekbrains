@@ -2,8 +2,8 @@ package Java_2.Lessons_Java_2.lesson_7;
 
 
 /**
-2. * Реализовать личные сообщения, если клиент пишет «/w nick3 Привет», то только клиенту с ником nick3 должно прийти сообщение «Привет»
-*/
+ * Created by Александр Руденко on 23.09.2017.
+ */
 
 interface IConstants {
     final String DRIVER_NAME = "org.sqlite.JDBC";

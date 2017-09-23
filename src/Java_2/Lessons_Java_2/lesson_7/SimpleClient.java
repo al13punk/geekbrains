@@ -1,10 +1,6 @@
 package Java_2.Lessons_Java_2.lesson_7;
 /**
- * Java. Level 2. Lesson 7
- * Simple chat client
- *
- * @author Sergey Iryupin
- * @version 0.2 dated Apr, 14 2017
+ * Created by Александр Руденко on 23.09.2017.
  */
 import java.io.*;
 import java.net.*;
